@@ -31,6 +31,14 @@ class Weapon extends \yii\db\ActiveRecord
 {
     use SafeFindOneTrait;
 
+    public static function findAvailable()
+    {
+        //$now = (int)(@$_SERVER['REQUEST_TIME'] ?: time());
+        return static::find();
+            // ->andWhere('{{weapon}}.[[release_at]] IS NOT NULL')
+            // ->andWhere(['<=', '{{weapon}}.[[release_at]]', gmdate('Y-m-d\TH:i:sP', $now)]);
+    }
+
     /**
      * @inheritdoc
      */

@@ -29,6 +29,14 @@ class Map extends \yii\db\ActiveRecord
 {
     use SafeFindOneTrait;
 
+    public static function findAvailable()
+    {
+        $now = (int)(@$_SERVER['REQUEST_TIME'] ?: time());
+        return static::find()
+            ->andWhere('{{map}}.[[release_at]] IS NOT NULL')
+            ->andWhere(['<=', '{{map}}.[[release_at]]', gmdate('Y-m-d\TH:i:sP', $now)]);
+    }
+
     /**
      * @inheritdoc
      */

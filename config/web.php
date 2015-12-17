@@ -59,9 +59,10 @@ $config = [
         'response' => [
             'class' => 'app\components\web\Response',
             'formatters' => [
-                'csv' => 'app\components\web\CsvResponseFormatter',
-                'ikalog-json' => 'app\components\web\IkalogJsonResponseFormatter',
-                'json' => 'app\components\web\PrettyJsonResponseFormatter',
+                'compact-json'  => 'app\components\web\CompactJsonResponseFormatter',
+                'csv'           => 'app\components\web\CsvResponseFormatter',
+                'ikalog-json'   => 'app\components\web\IkalogJsonResponseFormatter',
+                'json'          => 'app\components\web\PrettyJsonResponseFormatter',
             ],
         ],
         'view' => [
